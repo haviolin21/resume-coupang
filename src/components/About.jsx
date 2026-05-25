@@ -1,5 +1,6 @@
 import React from 'react';
 import { User, Heart } from 'lucide-react';
+import './About.css';
 
 export default function About({ aboutData }) {
   return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, Briefcase, MapPin, Download, ArrowRight } from 'lucide-react';
+import './Hero.css';
 
 export default function Hero({ personalInfo }) {
   return (

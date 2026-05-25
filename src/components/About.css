@@ -1,0 +1,51 @@
+@layer components {
+  /* 소개 텍스트 카드 */
+  .text-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 12px var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-icon-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+  }
+
+  .about-icon-header i {
+    width: 28px;
+    height: 28px;
+    color: var(--color-cp-blue);
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .about-icon-header h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  .about-box p {
+    color: var(--text-sub);
+    line-height: 1.75;
+    font-size: 1rem;
+    text-wrap: pretty;
+  }
+
+  .highlight-text {
+    background-color: var(--bg-alt);
+    border-left: 4px solid var(--color-cp-blue);
+    padding: 15px;
+    border-radius: 0 8px 8px 0;
+    font-weight: 600;
+    color: var(--text-main) !important;
+  }
+}

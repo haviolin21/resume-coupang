@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Phone, Download } from 'lucide-react';
+import './Footer.css';
 
 export default function Footer({ personalInfo }) {
   return (

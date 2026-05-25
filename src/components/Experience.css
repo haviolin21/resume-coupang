@@ -1,0 +1,163 @@
+@layer components {
+  /* 경력 사항 타임라인 */
+  .timeline {
+    position: relative;
+    max-width: 850px;
+    margin-inline: auto;
+    padding-left: 20px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background-color: var(--border-color);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .timeline-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .timeline-badge {
+    position: absolute;
+    left: -20px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-cp-blue);
+    border: 3px solid var(--bg-main);
+    z-index: 10;
+    transition: transform 0.2s;
+  }
+
+  .timeline-item:hover .timeline-badge {
+    transform: scale(1.4);
+  }
+
+  .timeline-panel {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 10px var(--card-shadow);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .timeline-item:hover .timeline-panel {
+    border-color: var(--color-cp-blue);
+    box-shadow: 0 8px 20px var(--card-shadow);
+  }
+
+  .timeline-header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  @media (min-width: 576px) {
+    .timeline-header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+
+  .timeline-header .period {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-cp-blue);
+    order: -1;
+  }
+
+  @media (min-width: 576px) {
+    .timeline-header .period {
+      order: 1;
+    }
+  }
+
+  .timeline-header h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+  }
+
+  .timeline-header .position {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-sub);
+  }
+
+  .timeline-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .timeline-body h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-main);
+  }
+
+  .task-list, .achievement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text-sub);
+    font-size: 0.95rem;
+  }
+
+  .task-list li, .achievement-list li {
+    position: relative;
+    padding-left: 15px;
+  }
+
+  .task-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--text-sub);
+  }
+
+  .achievement-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-cp-blue);
+    font-weight: bold;
+  }
+
+  .highlight-achievement {
+    color: var(--text-main);
+  }
+
+  .used-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .tool-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    background-color: var(--bg-alt);
+    border: 1px solid var(--border-color);
+    color: var(--text-sub);
+    border-radius: 4px;
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sun, Moon, Download } from 'lucide-react';
+import './Header.css';
 
 export default function Header({ theme, toggleTheme, activeSection }) {
   return (

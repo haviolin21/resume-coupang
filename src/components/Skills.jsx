@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Icons from 'lucide-react';
+import './Skills.css';
 
 export default function Skills({ skillsData }) {
   return (

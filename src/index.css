@@ -1,1 +1,213 @@
-/* Cleaned index.css to prevent conflicts with App.css */
+/* CSS 가이드라인에 따른 Cascade Layers 정의 */
+@layer reset, base, layout, components, utilities;
+
+@layer reset {
+  /* 글로벌 마진/패딩 초기화 및 box-sizing 통일 */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* 고정 헤더 높이 대응 */
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+@layer base {
+  /* 디자인 토큰 정의 (쿠팡 Jobs 테마) */
+  :root {
+    /* Tier 1: Literal Tokens */
+    --color-cp-blue: #0074E9;
+    --color-cp-blue-hover: #005cbd;
+    --color-cp-blue-light: #e6f2ff;
+    --color-cp-red: #E52528;
+    --color-cp-red-hover: #c41e21;
+    --color-cp-orange: #FF8F00;
+    
+    --color-light-bg: #FFFFFF;
+    --color-light-bg-alt: #F8F9FA;
+    --color-light-text-main: #111111;
+    --color-light-text-sub: #555555;
+    --color-light-border: #E2E8F0;
+    --color-light-card: #FFFFFF;
+    --color-light-shadow: rgba(0, 0, 0, 0.06);
+
+    --color-dark-bg: #0F172A;
+    --color-dark-bg-alt: #1E293B;
+    --color-dark-text-main: #F8FAFC;
+    --color-dark-text-sub: #94A3B8;
+    --color-dark-border: #334155;
+    --color-dark-card: #1E293B;
+    --color-dark-shadow: rgba(0, 0, 0, 0.3);
+
+    /* Tier 2: Semantic UI Tokens (System theme adaptive) */
+    --bg-main: light-dark(var(--color-light-bg), var(--color-dark-bg));
+    --bg-alt: light-dark(var(--color-light-bg-alt), var(--color-dark-bg-alt));
+    --text-main: light-dark(var(--color-light-text-main), var(--color-dark-text-main));
+    --text-sub: light-dark(var(--color-light-text-sub), var(--color-dark-text-sub));
+    --border-color: light-dark(var(--color-light-border), var(--color-dark-border));
+    --card-bg: light-dark(var(--color-light-card), var(--color-dark-card));
+    --card-shadow: light-dark(var(--color-light-shadow), var(--color-dark-shadow));
+
+    --font-primary: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  }
+
+  /* 강제 data-theme 매핑 (JS 동적 조작 대응) */
+  :root[data-theme="light"] {
+    --bg-main: var(--color-light-bg);
+    --bg-alt: var(--color-light-bg-alt);
+    --text-main: var(--color-light-text-main);
+    --text-sub: var(--color-light-text-sub);
+    --border-color: var(--color-light-border);
+    --card-bg: var(--color-light-card);
+    --card-shadow: var(--color-light-shadow);
+    color-scheme: light;
+  }
+
+  :root[data-theme="dark"] {
+    --bg-main: var(--color-dark-bg);
+    --bg-alt: var(--color-dark-bg-alt);
+    --text-main: var(--color-dark-text-main);
+    --text-sub: var(--color-dark-text-sub);
+    --border-color: var(--color-dark-border);
+    --card-bg: var(--color-dark-card);
+    --card-shadow: var(--color-dark-shadow);
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  /* 포커스 링 스타일링 (접근성) */
+  :focus-visible {
+    outline: 2px solid var(--color-cp-blue);
+    outline-offset: 4px;
+  }
+}
+
+@layer layout {
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+
+  .grid {
+    display: grid;
+    gap: 30px;
+  }
+
+  .grid-2-col {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .grid-2-col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .section-padding {
+    padding-block: 80px;
+  }
+
+  .bg-alt {
+    background-color: var(--bg-alt);
+  }
+}
+
+@layer components {
+  /* 일반 섹션 타이틀 */
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: -0.5px;
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: var(--color-cp-blue);
+    margin: 15px auto 0;
+    border-radius: 2px;
+  }
+
+  .section-title .subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-sub);
+    display: block;
+    margin-top: 5px;
+  }
+}
+
+@layer utilities {
+  /* 헬퍼 및 애니메이션 클래스 */
+  .accent-color {
+    color: var(--color-cp-blue);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* 뷰포트 페이드인 애니메이션용 */
+  .fade-in-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

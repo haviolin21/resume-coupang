@@ -1,0 +1,91 @@
+@layer components {
+  /* 역량 카드 */
+  .skill-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    box-shadow: 0 4px 10px var(--card-shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px var(--card-shadow);
+  }
+
+  .skill-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: var(--color-cp-blue-light);
+    color: var(--color-cp-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  :root[data-theme="dark"] .skill-icon-wrapper {
+    background-color: rgba(0, 116, 233, 0.15);
+    color: #60A5FA;
+  }
+
+  .skill-icon-wrapper i {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .skill-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .skill-content h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  .skill-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text-sub);
+    font-size: 0.95rem;
+  }
+
+  .skill-content ul li {
+    position: relative;
+    padding-left: 14px;
+  }
+
+  .skill-content ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-cp-blue);
+  }
+
+  .skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 5px;
+  }
+
+  .badge-tool {
+    background-color: var(--bg-alt);
+    color: var(--text-sub);
+    border: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 3px 8px;
+  }
+}

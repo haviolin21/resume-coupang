@@ -8,7 +8,6 @@ import Experience from './components/Experience';
 import ProjectCard from './components/ProjectCard';
 import Education from './components/Education';
 import Footer from './components/Footer';
-import './App.css';
 
 export default function App() {
   // 1. 다크 모드 상태 관리

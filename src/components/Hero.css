@@ -1,0 +1,156 @@
+@layer components {
+  /* 뱃지 */
+  .badge {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 20px;
+    text-transform: uppercase;
+    width: max-content;
+  }
+
+  .badge-accent {
+    background-color: var(--color-cp-blue-light);
+    color: var(--color-cp-blue);
+  }
+
+  :root[data-theme="dark"] .badge-accent {
+    background-color: rgba(0, 116, 233, 0.2);
+    color: #60A5FA;
+  }
+
+  /* 히어로 섹션 */
+  #hero {
+    padding-top: 140px;
+    padding-bottom: 80px;
+    background: linear-gradient(135deg, light-dark(#F1F5F9, #0F172A), light-dark(#E2E8F0, #1E293B));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-container {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  @media (min-width: 992px) {
+    .hero-container {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 3.2rem);
+    line-height: 1.25;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-wrap: balance;
+  }
+
+  .hero-content h1 .highlight {
+    color: var(--color-cp-blue);
+    position: relative;
+  }
+
+  .hero-lead {
+    font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+    color: var(--text-sub);
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  .hero-actions-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  /* 프로필 요약 카드 (히어로 오른쪽) */
+  .hero-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px var(--card-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .hero-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--card-shadow);
+  }
+
+  .profile-header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .profile-header h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+  }
+
+  .profile-header p {
+    color: var(--color-cp-blue);
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-top: 4px;
+  }
+
+  .profile-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .profile-contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-sub);
+    font-size: 0.95rem;
+  }
+
+  .profile-contact-list li i {
+    width: 18px;
+    height: 18px;
+    color: var(--color-cp-blue);
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .profile-contact-list li a:hover {
+    color: var(--color-cp-blue);
+    text-decoration: underline;
+  }
+
+  .profile-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    background-color: var(--bg-alt);
+    border-radius: 4px;
+    color: var(--text-main);
+  }
+}

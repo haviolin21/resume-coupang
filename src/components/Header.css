@@ -1,0 +1,153 @@
+@layer components {
+  /* 헤더 (Glassmorphism & Coupang Jobs 스타일) */
+  #main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  :root[data-theme="dark"] #main-header {
+    background-color: rgba(15, 23, 42, 0.85);
+  }
+
+  .header-container {
+    max-width: 1200px;
+    height: 100%;
+    margin-inline: auto;
+    padding-inline: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  .logo-yuntaek {
+    color: var(--text-main);
+  }
+
+  .logo-jobs {
+    color: var(--color-cp-blue);
+    margin-left: 2px;
+    font-weight: 900;
+  }
+
+  .nav-menu ul {
+    display: none;
+    gap: 30px;
+  }
+
+  @media (min-width: 768px) {
+    .nav-menu ul {
+      display: flex;
+    }
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    padding-block: 5px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-bottom-color 0.2s;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: var(--color-cp-blue);
+  }
+
+  .nav-link.active {
+    border-bottom-color: var(--color-cp-blue);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* 아이콘 버튼 */
+  .icon-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+
+  .icon-btn:hover {
+    background-color: var(--bg-alt);
+    border-color: var(--color-cp-blue);
+  }
+
+  /* 버튼 정의 */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+    cursor: pointer;
+    min-block-size: 40px; /* 터치 타깃 최소 높이 */
+    padding-inline: 16px;
+  }
+
+  .btn-sm {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    min-block-size: 32px;
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+    padding: 14px 28px;
+    min-block-size: 48px;
+  }
+
+  .btn-primary {
+    background-color: var(--color-cp-blue);
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0, 116, 233, 0.15);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-cp-blue-hover);
+    box-shadow: 0 4px 12px rgba(0, 116, 233, 0.3);
+  }
+
+  .btn-outline {
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-main);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--color-cp-blue);
+    color: var(--color-cp-blue);
+    background-color: var(--bg-alt);
+  }
+
+  .btn:active {
+    transform: scale(0.98);
+  }
+}

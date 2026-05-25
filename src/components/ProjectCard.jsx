@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ProjectCard.css';
 
 export default function ProjectCard({ corp, title, descShort, data }) {
   const [activeTab, setActiveTab] = useState('problem');
