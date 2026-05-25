@@ -150,6 +150,46 @@
     display: block;
     margin-top: 5px;
   }
+
+  /* 상단 이동 플로팅 버튼 */
+  .scroll-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: var(--color-cp-blue);
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 116, 233, 0.25);
+    z-index: 999;
+    transition: background-color 0.2s, transform 0.2s, opacity 0.2s;
+    cursor: pointer;
+    animation: fadeInTopBtn 0.25s ease-out;
+  }
+
+  .scroll-to-top-btn:hover {
+    background-color: var(--color-cp-blue-hover);
+    transform: translateY(-2px);
+  }
+
+  .scroll-to-top-btn:active {
+    transform: translateY(0);
+  }
+
+  @keyframes fadeInTopBtn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 @layer utilities {

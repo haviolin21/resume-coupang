@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ArrowUp } from 'lucide-react';
 import { resumeData } from './data/resumeData';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -15,7 +16,30 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // 2. Scrollspy: 활성 네비게이션 감지
+  // 2. 상단 이동 버튼 상태 관리
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  // 3. Scrollspy: 활성 네비게이션 감지
   const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {
@@ -40,7 +64,7 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // 3. Intersection Observer: 스크롤 시 부드럽게 요소를 등장시키는 애니메이션
+  // 4. Intersection Observer: 스크롤 시 부드럽게 요소를 등장시키는 애니메이션
   useEffect(() => {
     const fadeElements = [
       ...document.querySelectorAll('.skill-card'),
@@ -119,6 +143,17 @@ export default function App() {
           project={selectedProject} 
           onClose={() => setIsModalOpen(false)} 
         />
+      )}
+
+      {/* 상단 이동 버튼 */}
+      {showScrollTop && (
+        <button 
+          className="scroll-to-top-btn" 
+          onClick={scrollToTop} 
+          aria-label="페이지 상단으로 이동"
+        >
+          <ArrowUp size={24} />
+        </button>
       )}
     </div>
   );
