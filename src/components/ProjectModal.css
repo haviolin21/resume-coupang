@@ -22,14 +22,21 @@
     border-radius: 16px;
     width: 100%;
     max-width: 1100px;
+    height: auto;
     max-height: 90vh;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
     position: relative;
     display: flex;
     flex-direction: column;
     padding: 40px;
-    overflow-y: auto;
+    overflow: hidden;
     animation: slideUpModal 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @media (max-width: 991px) {
+    .modal-container {
+      overflow-y: auto;
+    }
   }
 
   /* 닫기 버튼 */
@@ -103,8 +110,8 @@
   @media (min-width: 992px) {
     .modal-content {
       grid-template-columns: 1.2fr 1fr;
-      /* 고정 높이를 주어 우측 스크롤이 원활히 동작하도록 함 */
-      max-height: calc(90vh - 180px);
+      flex: 1;
+      min-height: 0;
       overflow: hidden;
     }
   }
@@ -220,12 +227,15 @@
   .modal-right {
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
 
   .detail-paragraphs-scroll {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    flex: 1;
+    min-height: 0;
   }
 
   @media (min-width: 992px) {

@@ -17,11 +17,7 @@ export default function Hero({ personalInfo }) {
             단순 반복 업무 대응을 넘어 비효율의 근본 원인을 데이터로 진단하고 시스템 중심의 자동화 구조로 개선합니다.
           </p>
           <div className="hero-actions-group">
-            <a href="/resume_yuntaek.pdf" download="하윤택_이력서.pdf" className="btn btn-lg btn-primary">
-              <Download size={18} />
-              <span>이력서 다운로드 (PDF)</span>
-            </a>
-            <a href="#projects" className="btn btn-lg btn-outline">
+            <a href="#projects" className="btn btn-lg btn-primary">
               <span>프로젝트 보기</span>
               <ArrowRight size={18} />
             </a>
