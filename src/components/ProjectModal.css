@@ -283,14 +283,11 @@
   }
 
   .detail-paragraph {
-    font-size: 0.95rem;
-    line-height: 1.75;
+    font-size: 0.96rem;
+    line-height: 1.8;
     color: var(--color-light-text-sub);
     white-space: pre-wrap;
-    background-color: var(--color-light-bg-alt);
-    padding: 16px 20px;
-    border-radius: 8px;
-    border: 1px solid var(--color-light-border);
+    margin-bottom: 8px;
   }
 
   /* 애니메이션 효과 */
