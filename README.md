@@ -1,20 +1,16 @@
-# 하윤택 | BizOps & Operations Excellence 전문가 포트폴리오
+# React + Vite
 
-쿠팡 채용 페이지(Coupang Jobs)의 디자인 스타일을 오마주한 하윤택 님의 개인 웹 포트폴리오 이력서입니다.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 🚀 주요 특징
-- **Coupang Jobs 오마주**: 쿠팡의 브랜드 색상(Coupang Blue `#0074E9`, Coupang Red `#E52528`)과 레이아웃 디자인 시스템을 적용하여 프로페셔널한 느낌을 줍니다.
-- **다크 모드 지원**: 사용자 시스템 테마 연동 및 헤더 내 수동 다크 모드 스위칭을 지원합니다 (`light-dark()` CSS 함수 활용).
-- **이력서 다운로드**: 사이트 헤더 및 히어로 섹션에서 PDF 포맷의 이력서(`resume_yuntaek.pdf`)를 즉시 다운로드할 수 있습니다.
-- **인터랙션 프로젝트 카드**: 주요 프로젝트를 [문제 정의] -> [실행] -> [결과] -> [핵심 기여] 탭으로 나누어 사용자가 단계별로 직관적으로 살펴볼 수 있도록 구현했습니다.
-- **반응형 웹**: 모바일, 태블릿, 데스크톱 기기에 맞춘 그리드 및 플렉스 레이아웃을 제공합니다.
+Currently, two official plugins are available:
 
-## 📂 파일 구조
-- `index.html`: SEO 최적화 메타 태그가 적용된 웹 구조 마크업.
-- `styles.css`: CSS Variables, Layer(`@layer`), Container Queries 등을 활용한 모던 웹 스타일시트.
-- `app.js`: 다크 모드, 프로젝트 탭 전환, Scrollspy 등의 동작 스크립트.
-- `resume_yuntaek.pdf`: PDF 다운로드용 원본 이력서 파일.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 🛠️ 실행 방법
-이 프로젝트는 웹 프레임워크 없는 순수 HTML/CSS/JS로 작성되었습니다.
-별도의 빌드나 설치 과정 없이 `index.html` 파일을 더블 클릭하여 실행하거나, VS Code 등의 Live Server를 활용해 로컬에서 즉시 확인할 수 있습니다.
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
