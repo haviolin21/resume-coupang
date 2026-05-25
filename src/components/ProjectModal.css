@@ -106,17 +106,17 @@
     letter-spacing: -0.5px;
   }
 
-  /* 모달 레이아웃 (그리드) */
+  /* 모달 레이아웃 (Flexbox) */
   .modal-content {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 40px;
     overflow: visible;
   }
 
   @media (min-width: 992px) {
     .modal-content {
-      grid-template-columns: 1.2fr 1fr;
+      flex-direction: row;
       flex: 1;
       min-height: 0;
       overflow: hidden;
@@ -148,6 +148,13 @@
   .modal-left {
     display: flex;
     flex-direction: column;
+  }
+
+  @media (min-width: 992px) {
+    .modal-left {
+      flex: 1.2;
+      min-width: 0;
+    }
   }
 
   .modal-cards {
@@ -235,6 +242,13 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+  }
+
+  @media (min-width: 992px) {
+    .modal-right {
+      flex: 1;
+      min-width: 0;
+    }
   }
 
   .detail-paragraphs-scroll {
