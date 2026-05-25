@@ -1,0 +1,285 @@
+@layer components {
+  /* 모달 오버레이 */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeInOverlay 0.25s ease-out forwards;
+  }
+
+  /* 모달 컨테이너 */
+  .modal-container {
+    background-color: var(--color-light-bg);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 1100px;
+    max-height: 90vh;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    overflow-y: auto;
+    animation: slideUpModal 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* 닫기 버튼 */
+  .modal-close-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-light-bg-alt);
+    border: 1px solid var(--color-light-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-light-text-main);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .modal-close-btn:hover {
+    background-color: var(--color-light-border);
+    transform: rotate(90deg);
+  }
+
+  /* 모달 헤더 */
+  .modal-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--color-light-border);
+    padding-bottom: 20px;
+  }
+
+  .modal-corp-period {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .modal-corp {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--color-cp-blue);
+    background-color: var(--color-cp-blue-light);
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: -0.3px;
+  }
+
+  .modal-period {
+    font-size: 0.85rem;
+    color: var(--color-light-text-sub);
+  }
+
+  .modal-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--color-light-text-main);
+    letter-spacing: -0.5px;
+  }
+
+  /* 모달 레이아웃 (그리드) */
+  .modal-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    overflow: visible;
+  }
+
+  @media (min-width: 992px) {
+    .modal-content {
+      grid-template-columns: 1.2fr 1fr;
+      /* 고정 높이를 주어 우측 스크롤이 원활히 동작하도록 함 */
+      max-height: calc(90vh - 180px);
+      overflow: hidden;
+    }
+  }
+
+  /* 섹션 타이틀 */
+  .modal-section-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--color-light-text-main);
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 12px;
+  }
+
+  .modal-section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 3px;
+    bottom: 3px;
+    width: 4px;
+    background-color: var(--color-cp-blue);
+    border-radius: 2px;
+  }
+
+  /* 좌측 컬럼 */
+  .modal-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .modal-card {
+    border-radius: 12px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+    position: relative;
+  }
+
+  .modal-card.problem {
+    background-color: #FFF5F5;
+    border-color: #FFE3E3;
+  }
+
+  .modal-card.action {
+    background-color: #F0F7FF;
+    border-color: #E1EFFF;
+  }
+
+  .modal-card.result {
+    background-color: #F0FDF4;
+    border-color: #DCFCE7;
+  }
+
+  .card-badge {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .problem .card-badge {
+    background-color: #FFECEC;
+    color: var(--color-cp-red);
+  }
+
+  .action .card-badge {
+    background-color: #E6F2FF;
+    color: var(--color-cp-blue);
+  }
+
+  .result .card-badge {
+    background-color: #E6FBF0;
+    color: #0F834F;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .problem .card-title {
+    color: var(--color-cp-red);
+  }
+
+  .action .card-title {
+    color: var(--color-cp-blue);
+  }
+
+  .result .card-title {
+    color: #0F834F;
+  }
+
+  .card-text {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--color-light-text-sub);
+    font-weight: 500;
+  }
+
+  /* 우측 컬럼 */
+  .modal-right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .detail-paragraphs-scroll {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  @media (min-width: 992px) {
+    .detail-paragraphs-scroll {
+      overflow-y: auto;
+      padding-right: 15px;
+      /* 커스텀 스크롤바 지원 */
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-light-border) transparent;
+    }
+    
+    .detail-paragraphs-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    .detail-paragraphs-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    .detail-paragraphs-scroll::-webkit-scrollbar-thumb {
+      background-color: var(--color-light-border);
+      border-radius: 10px;
+    }
+  }
+
+  .detail-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--color-light-text-sub);
+    white-space: pre-wrap;
+    background-color: var(--color-light-bg-alt);
+    padding: 16px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--color-light-border);
+  }
+
+  /* 애니메이션 효과 */
+  @keyframes fadeInOverlay {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUpModal {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

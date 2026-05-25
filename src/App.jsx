@@ -6,26 +6,14 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import ProjectCard from './components/ProjectCard';
+import ProjectModal from './components/ProjectModal';
 import Education from './components/Education';
 import Footer from './components/Footer';
 
 export default function App() {
-  // 1. 다크 모드 상태 관리
-  const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved;
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return systemPrefersDark ? 'dark' : 'light';
-  });
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
-  };
+  // 1. 모달 제어 상태 관리
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // 2. Scrollspy: 활성 네비게이션 감지
   const [activeSection, setActiveSection] = useState('about');
@@ -57,7 +45,7 @@ export default function App() {
     const fadeElements = [
       ...document.querySelectorAll('.skill-card'),
       ...document.querySelectorAll('.timeline-item'),
-      ...document.querySelectorAll('.project-detail-card'),
+      ...document.querySelectorAll('.project-card'),
       ...document.querySelectorAll('.about-box'),
       ...document.querySelectorAll('.edu-card')
     ];
@@ -90,7 +78,7 @@ export default function App() {
 
   return (
     <div className="app-root">
-      <Header theme={theme} toggleTheme={toggleTheme} activeSection={activeSection} />
+      <Header activeSection={activeSection} />
 
       <main>
         <Hero personalInfo={resumeData.personalInfo} />
@@ -107,9 +95,13 @@ export default function App() {
                 <ProjectCard 
                   key={proj.id}
                   corp={proj.corp}
+                  period={proj.period}
                   title={proj.title}
-                  descShort={proj.descShort}
-                  data={proj.data}
+                  summaryBullets={proj.summaryBullets}
+                  onOpenDetail={() => {
+                    setSelectedProject(proj);
+                    setIsModalOpen(true);
+                  }}
                 />
               ))}
             </div>
@@ -120,6 +112,14 @@ export default function App() {
       </main>
 
       <Footer personalInfo={resumeData.personalInfo} />
+
+      {/* 프로젝트 상세 모달 */}
+      {isModalOpen && selectedProject && (
+        <ProjectModal 
+          project={selectedProject} 
+          onClose={() => setIsModalOpen(false)} 
+        />
+      )}
     </div>
   );
 }

@@ -62,28 +62,7 @@
     --color-light-card: #FFFFFF;
     --color-light-shadow: rgba(0, 0, 0, 0.06);
 
-    --color-dark-bg: #0F172A;
-    --color-dark-bg-alt: #1E293B;
-    --color-dark-text-main: #F8FAFC;
-    --color-dark-text-sub: #94A3B8;
-    --color-dark-border: #334155;
-    --color-dark-card: #1E293B;
-    --color-dark-shadow: rgba(0, 0, 0, 0.3);
-
-    /* Tier 2: Semantic UI Tokens (System theme adaptive) */
-    --bg-main: light-dark(var(--color-light-bg), var(--color-dark-bg));
-    --bg-alt: light-dark(var(--color-light-bg-alt), var(--color-dark-bg-alt));
-    --text-main: light-dark(var(--color-light-text-main), var(--color-dark-text-main));
-    --text-sub: light-dark(var(--color-light-text-sub), var(--color-dark-text-sub));
-    --border-color: light-dark(var(--color-light-border), var(--color-dark-border));
-    --card-bg: light-dark(var(--color-light-card), var(--color-dark-card));
-    --card-shadow: light-dark(var(--color-light-shadow), var(--color-dark-shadow));
-
-    --font-primary: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  }
-
-  /* 강제 data-theme 매핑 (JS 동적 조작 대응) */
-  :root[data-theme="light"] {
+    /* Tier 2: Semantic UI Tokens (Only Light Theme) */
     --bg-main: var(--color-light-bg);
     --bg-alt: var(--color-light-bg-alt);
     --text-main: var(--color-light-text-main);
@@ -91,18 +70,9 @@
     --border-color: var(--color-light-border);
     --card-bg: var(--color-light-card);
     --card-shadow: var(--color-light-shadow);
-    color-scheme: light;
-  }
 
-  :root[data-theme="dark"] {
-    --bg-main: var(--color-dark-bg);
-    --bg-alt: var(--color-dark-bg-alt);
-    --text-main: var(--color-dark-text-main);
-    --text-sub: var(--color-dark-text-sub);
-    --border-color: var(--color-dark-border);
-    --card-bg: var(--color-dark-card);
-    --card-shadow: var(--color-dark-shadow);
-    color-scheme: dark;
+    --font-primary: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    color-scheme: light;
   }
 
   body {

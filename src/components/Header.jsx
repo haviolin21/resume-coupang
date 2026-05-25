@@ -1,8 +1,8 @@
 import React from 'react';
-import { Sun, Moon, Download } from 'lucide-react';
+import { Download } from 'lucide-react';
 import './Header.css';
 
-export default function Header({ theme, toggleTheme, activeSection }) {
+export default function Header({ activeSection }) {
   return (
     <header id="main-header">
       <div className="header-container">
@@ -27,14 +27,6 @@ export default function Header({ theme, toggleTheme, activeSection }) {
           </ul>
         </nav>
         <div className="header-actions">
-          {/* 다크모드 토글 버튼 */}
-          <button onClick={toggleTheme} aria-label="테마 전환" className="icon-btn">
-            {theme === 'dark' ? (
-              <Sun size={20} color="#FBBF24" />
-            ) : (
-              <Moon size={20} color="#1E293B" />
-            )}
-          </button>
           {/* 이력서 다운로드 */}
           <a href="/resume_yuntaek.pdf" download="하윤택_이력서.pdf" className="btn btn-primary btn-sm">
             <Download size={15} />
