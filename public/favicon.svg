@@ -1,15 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <defs>
-    <!-- 쿠팡 블루 그라데이션 -->
-    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0080FF" />
-      <stop offset="100%" stop-color="#005cbd" />
-    </linearGradient>
-  </defs>
-  <!-- 원형 배경 -->
-  <circle cx="50" cy="50" r="48" fill="url(#bg-grad)" />
-  <!-- 쿠팡 감각의 하단 레드 아치 꼬리 -->
-  <path d="M 12 75 C 28 92, 72 92, 88 75 C 72 65, 28 65, 12 75 Z" fill="#E52528" />
-  <!-- 굵은 이니셜 H -->
-  <text x="50" y="65" font-family="'Pretendard', 'Inter', -apple-system, sans-serif" font-weight="900" font-size="44" fill="#FFFFFF" text-anchor="middle">H</text>
+  <!-- 흰색 둥근 사각형 배경 -->
+  <rect x="2" y="2" width="96" height="96" rx="26" fill="#FFFFFF" />
+  <!-- 쿠팡 감각의 굵고 선명한 레드 알파벳 H -->
+  <text x="50" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', sans-serif" font-weight="900" font-size="70" fill="#E52528" text-anchor="middle">H</text>
 </svg>
