@@ -12,8 +12,8 @@
   }
 
   .skill-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px var(--card-shadow);
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
   }
 
   .skill-icon-wrapper {
@@ -26,11 +26,6 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-  }
-
-  :root[data-theme="dark"] .skill-icon-wrapper {
-    background-color: rgba(0, 116, 233, 0.15);
-    color: #60A5FA;
   }
 
   .skill-icon-wrapper i {
@@ -87,5 +82,13 @@
     font-weight: 600;
     border-radius: 4px;
     padding: 3px 8px;
+    transition: all 0.2s ease;
+  }
+
+  .badge-tool:hover {
+    background-color: var(--color-cp-blue-light);
+    color: var(--color-cp-blue);
+    border-color: var(--color-cp-blue);
+    transform: translateY(-1px) scale(1.05);
   }
 }

@@ -26,6 +26,13 @@ export default function Header({ activeSection }) {
             </li>
           </ul>
         </nav>
+        <div className="header-actions">
+          {/* 이력서 다운로드 */}
+          <a href="/resume_yuntaek.pdf" download="하윤택_이력서.pdf" className="btn btn-primary btn-sm">
+            <Download size={15} />
+            <span>이력서 다운로드</span>
+          </a>
+        </div>
       </div>
     </header>
   );

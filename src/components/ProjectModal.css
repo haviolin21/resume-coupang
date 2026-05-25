@@ -165,24 +165,33 @@
 
   .modal-card {
     border-radius: 12px;
-    padding: 20px 24px;
+    padding: 20px 24px 20px 28px;
     border: 1px solid transparent;
     position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease;
+  }
+
+  .modal-card:hover {
+    transform: translateX(4px);
   }
 
   .modal-card.problem {
     background-color: #FFF5F5;
     border-color: #FFE3E3;
+    border-left: 4px solid var(--color-cp-red);
   }
 
   .modal-card.action {
     background-color: #F0F7FF;
     border-color: #E1EFFF;
+    border-left: 4px solid var(--color-cp-blue);
   }
 
   .modal-card.result {
     background-color: #F0FDF4;
     border-color: #DCFCE7;
+    border-left: 4px solid #0F834F;
   }
 
   .card-badge {
